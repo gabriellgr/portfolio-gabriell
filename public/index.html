@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Gabriell Gregorio — Founder & Software Engineer na SynexLab. Infraestruturas inteligentes com IA, automação escalável e desenvolvimento back-end em Python." />
+  <meta property="og:title" content="Gabriell Gregorio · Founder & Engineer · SynexLab" />
+  <meta property="og:description" content="Infraestruturas inteligentes que operam enquanto você dorme." />
+  <meta property="og:type" content="website" />
+  <title>Gabriell Gregorio · Fundador & Engenheiro</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@1,700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Grain Overlay -->
+  <div id="grain" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+      <filter id="grain-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+        <feBlend in="SourceGraphic" mode="multiply" />
+      </filter>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════ NAVBAR (HERO LIGHT) ═══════════════════════ -->
+  <header id="navbar" class="navbar-light">
+    <a href="#hero" class="nav-logo" id="nav-logo-link">gabriellgr.dev</a>
+    <span class="nav-year">[ 2026 ]</span>
+    <span class="nav-role">Fundador &amp; Dev</span>
+  </header>
+
+  <!-- ═══════════════════════ SOCIAL DOCK ═══════════════════════ -->
+  <nav class="social-dock" aria-label="Redes sociais" id="social-dock">
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/gabriellgregorio" class="sd-btn sd-linkedin" id="sd-linkedin" target="_blank"
+      rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+      <span class="sd-label">LinkedIn</span>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/gabriellgregorio" class="sd-btn sd-instagram" id="sd-instagram" target="_blank"
+      rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+      </svg>
+      <span class="sd-label">Instagram</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5584988278424" class="sd-btn sd-whatsapp" id="sd-whatsapp" target="_blank" rel="noopener"
+      aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+      </svg>
+      <span class="sd-label">WhatsApp</span>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/gabriellgr" class="sd-btn sd-github" id="sd-github" target="_blank" rel="noopener"
+      aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+      </svg>
+      <span class="sd-label">GitHub</span>
+    </a>
+
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section id="hero" aria-label="Apresentação">
+
+      <!-- ── TÍTULO PRINCIPAL ── -->
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" id="hero-heading">
+          <span class="ht-sans reveal-word">Gabriell</span><span class="ht-serif reveal-word">Gregório</span>
+        </h1>
+      </div>
+
+      <!-- ── LEQUE DE CARDS ── -->
+      <div class="hero-fan" aria-hidden="true">
+        <div class="fan-card fc-1">
+          <span class="fc-tag">TravelTech</span>
+          <span class="fc-name">Euronex &amp;<br>ViaLux</span>
+          <span class="fc-desc">Automação de triagem de clientes via WhatsApp com qualificação inteligente.</span>
+          <span class="fc-year">2026</span>
+        </div>
+        <div class="fan-card fc-2">
+          <span class="fc-tag">VetTech</span>
+          <span class="fc-name">Canis<br>e Catus</span>
+          <span class="fc-desc">Sistema de gestão veterinária com automações de fluxo interno.</span>
+          <span class="fc-year">2024</span>
+        </div>
+        <div class="fan-card fc-3">
+          <span class="fc-tag">Infra · AI</span>
+          <span class="fc-name">Synex<br>Lab</span>
+          <span class="fc-desc">Laboratório de infraestruturas inteligentes que operam 24/7.</span>
+          <span class="fc-year">2025</span>
+        </div>
+        <div class="fan-card fc-4">
+          <span class="fc-tag">Produtividade</span>
+          <span class="fc-name">Executive<br>AI Agent</span>
+          <span class="fc-desc">IA como "segundo cérebro" para gestão estratégica de projetos.</span>
+          <span class="fc-year">2025</span>
+        </div>
+        <div class="fan-card fc-5">
+          <span class="fc-tag">LegalTech · AI</span>
+          <span class="fc-name">LegalTech<br>Prev</span>
+          <span class="fc-desc">Agente de IA para qualificação de leads em benefícios previdenciários.</span>
+          <span class="fc-year">2025</span>
+        </div>
+      </div>
+
+
+      <!-- ── BARRA INFERIOR ── -->
+      <div class="hero-bottom">
+        <div class="hb-left">
+          <span class="hb-year">20<br>26</span>
+          <span class="hb-label">projetos<br><em>selecionados</em></span>
+        </div>
+        <p class="hb-tagline">"a imaginação é mais<br>importante que o conhecimento"</p>
+        <div class="hb-tags" id="hero-tags">
+          <span class="hb-tag">Automação de Processos</span>
+          <span class="hb-tag">Agentes de IA</span>
+          <span class="hb-tag">Back-End Python</span>
+          <span class="hb-tag">Integrações API</span>
+        </div>
+      </div>
+
+      <!-- ── BARRA DE RODAPÉ DA SEÇÃO ── -->
+      <div class="hero-foot">
+        <span>SynexLab</span>
+        <span>[ 2026 ]</span>
+        <a href="#work">Projetos ↓</a>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+    <section id="about" class="about-fullscreen reveal-section" aria-label="Sobre">
+
+      <!-- Foto de fundo (adicione src="sua-foto.jpg" quando tiver a imagem) -->
+      <div class="about-photo-bg" id="about-photo-bg" aria-hidden="true">
+        <!-- placeholder: gradiente até você enviar a foto -->
+      </div>
+
+      <!-- Overlay escuro com gradiente -->
+      <div class="about-overlay" aria-hidden="true"></div>
+
+      <!-- Texto central -->
+      <div class="about-body">
+        <p class="about-intro">
+          Olá, eu sou <strong>Gabriell.</strong><br>
+          um <em>Fundador</em> &amp; <em>Engenheiro</em><br>
+          operando em Natal, RN. Aqui você<br>
+          pode ver algumas das minhas<br>
+          infraestruturas &amp; projetos.
+        </p>
+      </div>
+
+      <!-- Barra de contatos no rodapé da seção -->
+      <div class="about-foot">
+        <a href="mailto:[EMAIL_ADDRESS]" class="af-link" id="about-email">[EMAIL_ADDRESS]</a>
+        <a href="https://linkedin.com/in/gabriellgregorio" class="af-link" id="about-linkedin" target="_blank"
+          rel="noopener">linkedin.com/in/gabriellgregorio</a>
+        <a href="https://wa.me/5584988278424" class="af-link" id="about-whatsapp" target="_blank" rel="noopener">+55
+          (84) 9 8827-8424</a>
+      </div>
+
+    </section>
+
+
+    <!-- ═══════════════════════ INFO GRID ═══════════════════════ -->
+    <section id="info-grid" class="info-section reveal-section" aria-label="Informações detalhadas">
+      <div class="info-container">
+
+        <!-- APRESENTAÇÃO: linha 1, coluna 1 -->
+        <div class="ia-apresentacao">
+          <h2 class="info-title">Olá!</h2>
+          <p class="info-text">
+            Sou Gabriell, fundador da SynexLab. Tenho uma paixão profunda por criar
+            infraestruturas que operam sozinhas, transformando ideias abstratas em sistemas
+            sólidos e escaláveis. Sempre em busca de novos desafios técnicos.
+          </p>
+        </div>
+
+        <!-- EXPERIÊNCIA: linha 1, coluna 2 -->
+        <div class="ia-experiencia">
+          <h2 class="info-title">Experiência</h2>
+          <div class="info-item">
+            <span class="info-item-date">SynexLab, 2025 — Hoje</span>
+            <span class="info-item-role">Fundador &amp; Engenheiro de Software</span>
+            <p>Liderando o desenvolvimento de agentes de IA e automações de back-end para empresas de diversos setores.
+            </p>
+          </div>
+          <div class="info-item">
+            <span class="info-item-date">Freelance, 2023 — 2024</span>
+            <span class="info-item-role">Full-Stack Developer</span>
+            <p>Desenvolvimento de MVPs e integrações de API focadas em eficiência operacional.</p>
+          </div>
+        </div>
+
+        <!-- FORMAÇÃO: linha 1, coluna 3 -->
+        <div class="ia-formacao">
+          <h2 class="info-title">Formação</h2>
+          <div class="info-item">
+            <span class="info-item-date">UFRN, 2022 — Hoje</span>
+            <span class="info-item-role">Bacharel em Ciência e Tecnologia</span>
+            <p>Foco em modelagem matemática e fundamentos de computação.</p>
+          </div>
+          <div class="info-item">
+            <span class="info-item-date">FAP/UFRN, 2025</span>
+            <span class="info-item-role">Dev Python Back-End</span>
+            <p>Especialização em arquitetura de sistemas distribuídos e escalabilidade.</p>
+          </div>
+        </div>
+
+        <!-- CONTATO: linha 2, coluna 1 -->
+        <div class="ia-contato">
+          <h2 class="info-title">Contato</h2>
+          <ul class="info-list">
+            <li><strong>Email</strong><span>contato@synexlab.com.br</span></li>
+            <li><strong>LinkedIn</strong><span>gabriellgregorio</span></li>
+            <li><strong>GitHub</strong><span>gabriellgr</span></li>
+            <li><strong>Local</strong><span>Natal, RN — Brasil</span></li>
+          </ul>
+        </div>
+
+        <!-- FERRAMENTAS: linha 2, colunas 2–3 -->
+        <div class="ia-ferramentas">
+          <h2 class="info-title">Ferramentas</h2>
+          <div class="tools-grid">
+            <div class="tool-card" title="Python">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.912S0 5.789 0 11.969c0 6.18 3.403 5.963 3.403 5.963h2.031v-2.868s-.109-3.403 3.347-3.403h5.764s3.236.052 3.236-3.128V3.128S18.28 0 11.914 0zm-3.2 1.812a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.109S24 18.211 24 12.031c0-6.18-3.403-5.963-3.403-5.963h-2.031v2.868s.109 3.403-3.347 3.403h-5.764s-3.236-.052-3.236 3.128v5.405S5.72 24 12.086 24zm3.2-1.812a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z" />
+              </svg>
+              <strong>Python</strong>
+            </div>
+            <div class="tool-card" title="Node.js">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.998 24a2.39 2.39 0 0 1-1.197-.32L7.63 21.98c-.477-.265-.244-.36-.086-.41.638-.222.767-.273 1.449-.662.072-.04.166-.026.24.016l2.413 1.433c.088.047.21.047.29 0l9.409-5.435c.088-.05.143-.15.143-.256V7.335c0-.108-.055-.207-.145-.257L12 1.645a.29.29 0 0 0-.29 0L2.302 7.078a.3.3 0 0 0-.147.258v10.869c0 .104.057.205.145.253l2.578 1.489c1.397.699 2.254-.124 2.254-.95V8.187c0-.15.12-.27.27-.27h1.18c.148 0 .27.12.27.27V18.997c0 1.862-1.013 2.93-2.778 2.93-.543 0-.97 0-2.163-.588L1.2 19.87A2.39 2.39 0 0 1 0 17.803V6.934A2.39 2.39 0 0 1 1.2 4.868l9.41-5.435a2.46 2.46 0 0 1 2.394 0l9.41 5.435A2.39 2.39 0 0 1 24 6.934v10.869a2.39 2.39 0 0 1-1.2 2.067l-9.41 5.435a2.38 2.38 0 0 1-1.392.095z" />
+              </svg>
+              <strong>Node.js</strong>
+            </div>
+            <div class="tool-card" title="Supabase">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C.111 12.888.697 14.08 1.75 14.066l9.18-.19 .97 8.818c.015.987 1.262 1.41 1.874.637l9.261-11.652c.654-.837.068-2.028-.986-2.014l-9.18.19-.97-8.82z" />
+              </svg>
+              <strong>Supabase</strong>
+            </div>
+            <div class="tool-card" title="OpenAI">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9 5.985 5.985 0 0 0 2.765 1.82 6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073z" />
+              </svg>
+              <strong>OpenAI</strong>
+            </div>
+            <div class="tool-card" title="PostgreSQL">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.128 0a10.134 10.134 0 0 0-2.755.403C12.886.023 11.504 0 10.698 0 8.478 0 6.721.397 5.34 1.195 3.463 2.279 2.587 3.986 2.587 5.994c0 .765.107 2.728 1.364 4.429.683.922 1.616 1.54 2.766 1.84.198.476.198.476.296.975.403 2.05.404 3.048.005 2.306-.288 4.485-1.038 5.956a.302.302 0 0 0 .406.379c2.467-1.052 3.69-2.48 4.187-3.564.393-1.076.833.382.833.382.483.152 1.044.237 1.732.237.753 0 1.473-.1 2.124-.299.652-.21 1.265-.546 1.793-1.046.48-.458.836-.97 1.035-1.48.199-.51.253-1.04.253-1.5 0-.463-.065-.9-.166-1.287-.083-.316-.207-.707-.395-1.113-.194-.424-.701-1.315-.701-1.315a3.505 3.505 0 0 1-.063-.288 2.93 2.93 0 0 1-.025-.377c.001-.27.033-.55.075-.844.406-1.76.406-1.76.188-.666.078-.536 0-.278-.04-.5-.116-.694a1.553 1.553 0 0 0-.31-.496z" />
+              </svg>
+              <strong>PostgreSQL</strong>
+            </div>
+            <div class="tool-card" title="Docker">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z" />
+              </svg>
+              <strong>Docker</strong>
+            </div>
+            <div class="tool-card" title="Git">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.546 10.93L13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.9 3.039 1.837 1.837 0 0 1-2.634-2.558L13.08 8.307v6.859a1.838 1.838 0 0 1 .484 3.582 1.836 1.836 0 0 1-2.292-1.807 1.837 1.837 0 0 1 1.22-1.727V8.131a1.839 1.839 0 0 1-.999-2.405L8.769 3.009 .45 11.327a1.55 1.55 0 0 0 0 2.188l10.48 10.478a1.55 1.55 0 0 0 2.186 0l10.43-10.43a1.55 1.55 0 0 0 0-2.633z" />
+              </svg>
+              <strong>Git</strong>
+            </div>
+            <div class="tool-card" title="REST API">
+              <svg class="tool-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21.6C6.706 21.6 2.4 17.294 2.4 12S6.706 2.4 12 2.4 21.6 6.706 21.6 12 17.294 21.6 12 21.6zm-1.2-4.8h2.4v2.4h-2.4zm0-9.6h2.4v7.2h-2.4z" />
+              </svg>
+              <strong>REST API</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ WORK ═══════════════════════ -->
+    <section id="work" class="section reveal-section" aria-label="Trabalhos selecionados">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">[</span> Projetos Selecionados <span class="accent">]</span></h2>
+        <p class="section-subtitle">// 2023 — 2025</p>
+      </div>
+
+      <div class="work-list" role="list">
+
+        <article class="work-card" id="work-01" role="listitem" tabindex="0" data-project="euronex">
+          <span class="work-number" aria-hidden="true">01</span>
+          <div class="work-info">
+            <h3 class="work-name">Euronex &amp; ViaLux</h3>
+            <span class="work-tag">TravelTech</span>
+            <p class="work-desc">Automação de triagem de clientes via WhatsApp com qualificação inteligente.</p>
+          </div>
+          <span class="work-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="work-card" id="work-02" role="listitem" tabindex="0" data-project="canis">
+          <span class="work-number" aria-hidden="true">02</span>
+          <div class="work-info">
+            <h3 class="work-name">Canis e Catus</h3>
+            <span class="work-tag">VetTech</span>
+            <p class="work-desc">Sistema de gestão veterinária com automações de fluxo interno.</p>
+          </div>
+          <span class="work-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="work-card" id="work-03" role="listitem" tabindex="0" data-project="legaltech">
+          <span class="work-number" aria-hidden="true">03</span>
+          <div class="work-info">
+            <h3 class="work-name">LegalTech Previdenciária</h3>
+            <span class="work-tag">LegalTech · AI</span>
+            <p class="work-desc">Agente de IA para qualificação de leads em benefícios previdenciários.</p>
+          </div>
+          <span class="work-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="work-card" id="work-04" role="listitem" tabindex="0" data-project="executive">
+          <span class="work-number" aria-hidden="true">04</span>
+          <div class="work-info">
+            <h3 class="work-name">Assistente Executivo de IA</h3>
+            <span class="work-tag">Produtividade · IA</span>
+            <p class="work-desc">Assistente executivo de IA como "segundo cérebro" para gestão de projetos.</p>
+          </div>
+          <span class="work-arrow" aria-hidden="true">↗</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ STACK ═══════════════════════ -->
+    <section id="stack" class="section reveal-section" aria-label="Stack e ferramentas">
+      <div class="section-header">
+        <h2 class="section-title">Habilidades &amp; Ferramentas</h2>
+        <p class="section-subtitle">// Ferramentas que uso para construir o futuro.</p>
+      </div>
+
+      <div class="chips-container" role="list" aria-label="Tecnologias">
+        <span class="chip active" role="listitem" data-stack="python">Python</span>
+        <span class="chip" role="listitem" data-stack="supabase">Supabase</span>
+        <span class="chip" role="listitem" data-stack="vercel">Vercel</span>
+        <span class="chip" role="listitem" data-stack="nodejs">Node.js</span>
+        <span class="chip" role="listitem" data-stack="n8n">n8n</span>
+        <span class="chip" role="listitem" data-stack="make">Make</span>
+        <span class="chip" role="listitem" data-stack="whatsapp">WhatsApp API</span>
+        <span class="chip" role="listitem" data-stack="openai">OpenAI API</span>
+        <span class="chip" role="listitem" data-stack="nextjs">Next.js</span>
+        <span class="chip" role="listitem" data-stack="postgresql">PostgreSQL</span>
+        <span class="chip" role="listitem" data-stack="git">Git</span>
+        <span class="chip" role="listitem" data-stack="canva">Canva Pro</span>
+      </div>
+
+      <div class="skills-list" aria-label="Nível de habilidades">
+        <div class="skill-row" id="skill-python">
+          <div class="skill-meta">
+            <span class="skill-name">Python Back-End</span>
+            <span class="skill-pct">92%</span>
+          </div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+            <div class="skill-fill" style="--target: 92%"></div>
+          </div>
+        </div>
+        <div class="skill-row" id="skill-automacao">
+          <div class="skill-meta">
+            <span class="skill-name">Automação de Processos</span>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="skill-fill" style="--target: 95%"></div>
+          </div>
+        </div>
+        <div class="skill-row" id="skill-api">
+          <div class="skill-meta">
+            <span class="skill-name">Integração de APIs</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+            <div class="skill-fill" style="--target: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-row" id="skill-gestao">
+          <div class="skill-meta">
+            <span class="skill-name">Gestão de Projetos</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+            <div class="skill-fill" style="--target: 88%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ EXPERIENCE ═══════════════════════ -->
+    <section id="experience" class="section reveal-section" aria-label="Experiência e formação">
+      <div class="exp-grid">
+        <!-- Coluna Esquerda: Experience -->
+        <div class="exp-col">
+          <h2 class="exp-heading">Experiência.</h2>
+          <div class="timeline" role="list">
+            <div class="timeline-item" role="listitem" id="exp-synexlab">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2025 — Presente</span>
+                <h3 class="timeline-role">Fundador &amp; Engenheiro de Software</h3>
+                <p class="timeline-company">SynexLab</p>
+                <p class="timeline-desc">Liderança técnica e estratégica. Desenvolvimento de automações escaláveis com
+                  IA, back-end em Python, integração de APIs e modelagem de dados.</p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem" id="exp-freelance">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">nov. 2025</span>
+                <h3 class="timeline-role">Desenvolvedor Freelance</h3>
+                <p class="timeline-company">Automações &amp; Sistemas</p>
+                <p class="timeline-desc">Desenvolvimento de soluções personalizadas para múltiplos setores: TravelTech,
+                  VetTech, LegalTech.</p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem" id="exp-fap">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">jan. 2025</span>
+                <h3 class="timeline-role">Certificação Python Back-End</h3>
+                <p class="timeline-company">FAP / UFRN</p>
+                <p class="timeline-desc">Especialização focada em desenvolvimento back-end com Python e arquitetura de
+                  sistemas.</p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem" id="exp-ufrn">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023</span>
+                <h3 class="timeline-role">Ecossistema de Inovação</h3>
+                <p class="timeline-company">UFRN</p>
+                <p class="timeline-desc">Participação no ecossistema de inovação e empreendedorismo tecnológico da
+                  UFRN.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Education -->
+        <div class="edu-col">
+          <h2 class="edu-heading">Educação.</h2>
+          <div class="edu-list" role="list">
+            <div class="edu-item" role="listitem" id="edu-ufrn">
+              <span class="edu-year">2023 — Presente</span>
+              <h3 class="edu-degree">Ciência e Tecnologia</h3>
+              <p class="edu-institution">Universidade Federal do Rio Grande do Norte — UFRN</p>
+              <p class="edu-detail">Formação multidisciplinar com foco em tecnologia, computação e inovação.</p>
+            </div>
+            <div class="edu-item" role="listitem" id="edu-fap">
+              <span class="edu-year">jan. 2025</span>
+              <h3 class="edu-degree">Desenvolvimento Python Back-End</h3>
+              <p class="edu-institution">FAP / UFRN · Concluído</p>
+              <p class="edu-detail">Especialização em desenvolvimento back-end, APIs REST e arquitetura de dados com
+                Python.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+    <section id="contact" class="section reveal-section" aria-label="Contato">
+      <div class="contact-inner">
+        <p class="contact-sub">// Disponível para projetos, consultorias e parcerias.</p>
+        <h2 class="contact-cta">Vamos<br /><span class="accent">construir.</span></h2>
+
+        <div class="contact-links" role="list" aria-label="Links de contato">
+          <a href="mailto:contato@synexlab.com.br" class="contact-link" id="contact-email" role="listitem">
+            <span class="link-label">Email</span>
+            <span class="link-value">contato@synexlab.com.br</span>
+          </a>
+          <span class="contact-sep" aria-hidden="true">·</span>
+          <a href="https://linkedin.com/in/gabriellgregorio" class="contact-link" id="contact-linkedin" target="_blank"
+            rel="noopener" role="listitem">
+            <span class="link-label">LinkedIn</span>
+            <span class="link-value">gabriellgregorio</span>
+          </a>
+          <span class="contact-sep" aria-hidden="true">·</span>
+          <a href="https://wa.me/5511999999999" class="contact-link" id="contact-whatsapp" target="_blank"
+            rel="noopener" role="listitem">
+            <span class="link-label">WhatsApp</span>
+            <span class="link-value">Falar agora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ MODAL DE PROJETO ═══════════════════ -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Fechar">&times;</button>
+
+      <div class="modal-header">
+        <span class="modal-number" id="modal-number">01</span>
+        <div>
+          <h2 class="modal-title" id="modal-title">Projeto</h2>
+          <span class="modal-tag" id="modal-tag">Tag</span>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-description">
+          <h3 class="modal-section-label">// O que foi feito</h3>
+          <p id="modal-desc"></p>
+        </div>
+
+        <div class="modal-results" id="modal-results-block">
+          <h3 class="modal-section-label">// Resultados</h3>
+          <ul id="modal-results"></ul>
+        </div>
+
+        <div class="modal-testimonial">
+          <h3 class="modal-section-label">// Feedback do cliente</h3>
+          <blockquote id="modal-quote"></blockquote>
+          <cite id="modal-cite"></cite>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <span class="footer-left">SynexLab © 2025</span>
+    <span class="footer-center">[ Design &amp; Desenvolvimento ]</span>
+    <span class="footer-right">Natal, RN · Brasil</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
