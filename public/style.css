@@ -236,6 +236,7 @@ body.cursor-hover #cursor-follower {
   gap: 0;
   padding: 0 clamp(16px, 4vw, 60px);
   height: clamp(340px, 42vh, 520px);
+  margin-bottom: clamp(40px, 6vw, 80px);
   position: relative;
 }
 
@@ -250,48 +251,34 @@ body.cursor-hover #cursor-follower {
   position: absolute;
   bottom: 0;
   transform-origin: bottom center;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s, left 0.5s var(--ease), z-index 0.5s;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-  cursor: default;
+  cursor: grab;
 }
 
 .fan-card:hover {
-  transform: translateY(-16px) scale(1.04) !important;
+  transform: translateY(-16px) scale(1.04);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
-/* Posições e rotações individuais do leque */
-.fc-1 {
-  background: #E8E4DC;
-  left: calc(50% - clamp(280px, 28vw, 420px));
-  transform: rotate(-14deg);
+.fan-card.duplicate {
+  display: none;
 }
 
-.fc-2 {
-  background: #D6D0F0;
-  left: calc(50% - clamp(150px, 15vw, 220px));
-  transform: rotate(-7deg);
-}
+/* Cores de fundo (fixas por projeto) */
+.fc-1 { background: #E8E4DC; }
+.fc-2 { background: #D6D0F0; }
+.fc-3 { background: #0A0A0A; }
+.fc-4 { background: #1400FF; }
+.fc-5 { background: #E0E8FF; }
 
-.fc-3 {
-  background: #0A0A0A;
-  left: calc(50% - clamp(65px, 6.5vw, 100px));
-  transform: rotate(0deg);
-  z-index: 5;
-}
-
-.fc-4 {
-  background: #1400FF;
-  left: calc(50% + clamp(20px, 2vw, 30px));
-  transform: rotate(7deg);
-}
-
-.fc-5 {
-  background: #E0E8FF;
-  left: calc(50% + clamp(155px, 15.5vw, 225px));
-  transform: rotate(14deg);
-}
+/* Posições dinâmicas do leque (Desktop) - controladas via JS */
+.pos-1 { left: calc(50% - clamp(280px, 28vw, 420px)); transform: rotate(-14deg) translateY(40px); z-index: 1; }
+.pos-2 { left: calc(50% - clamp(150px, 15vw, 220px)); transform: rotate(-7deg) translateY(20px); z-index: 3; }
+.pos-3 { left: calc(50% - clamp(65px, 6.5vw, 100px)); transform: rotate(0deg) translateY(0); z-index: 5; }
+.pos-4 { left: calc(50% + clamp(20px, 2vw, 30px)); transform: rotate(7deg) translateY(20px); z-index: 4; }
+.pos-5 { left: calc(50% + clamp(155px, 15.5vw, 225px)); transform: rotate(14deg) translateY(40px); z-index: 2; }
 
 .fc-tag {
   font-family: var(--font-mono);
@@ -1131,6 +1118,19 @@ body.cursor-hover #cursor-follower {
    RESPONSIVE — MOBILE FIRST BREAKPOINTS
    ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* Mobile Overflow Safety Net */
+  #hero,
+  .about-fullscreen {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  /* Prevent initial layout shift / cut-off during scroll reveal on mobile */
+  .reveal-section {
+    transform: none !important;
+  }
 
   /* Navbar */
   .nav-year,
@@ -1142,39 +1142,34 @@ body.cursor-hover #cursor-follower {
     font-size: 0.9rem;
   }
 
-  /* Hero fan: simplify on mobile */
+  /* Hero fan: PC style rotated fan animation for mobile */
   .hero-fan {
-    height: clamp(180px, 40vw, 280px);
+    height: clamp(160px, 40vw, 280px);
+    margin-bottom: clamp(60px, 10vw, 100px);
+    display: block;
+    position: relative;
+    padding: 0;
+    margin-top: 32px;
   }
 
   .fan-card {
-    width: clamp(100px, 22vw, 155px);
-    height: clamp(140px, 30vw, 210px);
-    padding: 14px 14px 12px;
+    width: clamp(125px, 26vw, 155px);
+    height: clamp(160px, 32vw, 210px);
+    padding: 12px 10px 10px;
+    top: 0;
+    margin: 0;
+    left: auto;
   }
 
-  .fc-1 {
-    left: calc(50% - clamp(200px, 44vw, 320px));
-    transform: rotate(-12deg);
-  }
+  .pos-1 { left: calc(50% - clamp(160px, 35vw, 247px)); transform: rotate(-14deg) translateY(40px) scale(0.9); z-index: 1; }
+  .pos-2 { left: calc(50% - clamp(105px, 23vw, 162px)); transform: rotate(-7deg) translateY(20px) scale(0.95); z-index: 3; }
+  .pos-3 { left: calc(50% - clamp(50px, 11vw, 77px)); transform: rotate(0deg) translateY(0) scale(1); z-index: 5; }
+  .pos-4 { left: calc(50% + clamp(5px, 1vw, 8px)); transform: rotate(7deg) translateY(20px) scale(0.95); z-index: 4; }
+  .pos-5 { left: calc(50% + clamp(60px, 13vw, 93px)); transform: rotate(14deg) translateY(40px) scale(0.9); z-index: 2; }
 
-  .fc-2 {
-    left: calc(50% - clamp(108px, 24vw, 165px));
-    transform: rotate(-6deg);
-  }
-
-  .fc-3 {
-    left: calc(50% - clamp(50px, 11vw, 78px));
-    transform: rotate(0deg);
-  }
-
-  .fc-4 {
-    left: calc(50% + clamp(8px, 2vw, 28px));
-    transform: rotate(6deg);
-  }
-
-  .fc-5 {
-    display: none;
+  .fc-name {
+    word-break: break-word;
+    font-size: clamp(13px, 3vw, 16px) !important;
   }
 
   .hb-tagline {
@@ -1197,6 +1192,19 @@ body.cursor-hover #cursor-follower {
     font-size: clamp(56px, 15vw, 80px);
   }
 
+  .about-foot {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 16px;
+  }
+
+  .af-link {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
   /* Work */
   .work-card {
     grid-template-columns: 72px 1fr;
@@ -1211,10 +1219,48 @@ body.cursor-hover #cursor-follower {
     font-size: 48px;
   }
 
-  /* Experience */
+  /* Experience & Education side-by-side on Mobile */
   .exp-grid {
-    grid-template-columns: 1fr;
-    gap: 56px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .exp-heading,
+  .edu-heading {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .timeline {
+    padding-left: 12px;
+  }
+
+  .timeline-dot {
+    left: -16px;
+    width: 6px;
+    height: 6px;
+    top: 4px;
+  }
+
+  .timeline-date,
+  .edu-year {
+    font-size: 0.55rem;
+  }
+
+  .timeline-role,
+  .edu-degree {
+    font-size: 0.85rem;
+  }
+
+  .timeline-company,
+  .edu-institution {
+    font-size: 0.65rem;
+  }
+
+  .timeline-desc,
+  .edu-detail {
+    font-size: 0.65rem;
+    line-height: 1.4;
   }
 
   /* Footer */
@@ -1244,9 +1290,6 @@ body.cursor-hover #cursor-follower {
     font-size: clamp(64px, 18vw, 100px);
   }
 
-  .fc-4 {
-    display: none;
-  }
 
   .hero-fan {
     height: clamp(160px, 38vw, 240px);
@@ -1554,10 +1597,26 @@ body.cursor-hover #cursor-follower {
   margin-top: 6px;
 }
 
-/* Esconde no mobile */
+/* Move dock para a navbar no mobile */
 @media (max-width: 768px) {
   .social-dock {
-    display: none;
+    top: 0;
+    right: 0;
+    transform: none;
+    flex-direction: row;
+    height: var(--nav-h);
+    padding-right: clamp(24px, 5vw, 80px);
+    gap: 8px;
+  }
+  
+  .sd-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .sd-line,
+  .sd-label {
+    display: none !important;
   }
 }
 
@@ -1714,23 +1773,100 @@ body.cursor-hover #cursor-follower {
 }
 
 @media (max-width: 600px) {
+  .info-section {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: visible;
+    overflow-x: hidden;
+    padding: 70px 12px 16px; /* Ajuste para caber numa tela */
+  }
+
   .info-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "apresentacao"
-      "experiencia"
-      "formacao"
-      "contato"
-      "ferramentas";
-    gap: 32px;
+      "apresentacao apresentacao"
+      "experiencia formacao"
+      "contato ferramentas";
+    gap: 12px 8px; /* Espaçamento super reduzido */
+  }
+
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 0;
   }
 
   .info-title {
-    font-size: 48px;
+    font-size: 18px !important;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+  
+  .ia-apresentacao .info-title {
+    font-size: 28px !important;
+  }
+
+  .info-subtitle, 
+  .info-meta, 
+  .info-text,
+  .info-item p {
+    text-align: left;
+    font-size: 0.65rem;
+    line-height: 1.35;
+    margin-bottom: 0;
+  }
+  
+  .info-item {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  .info-item-date {
+    font-size: 0.55rem;
+    margin-bottom: 2px;
+  }
+
+  .info-item-role {
+    font-size: 0.75rem;
+    line-height: 1.1;
   }
 
   .tools-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: flex-start;
+    gap: 4px;
+    width: 100%;
+  }
+  
+  .tool-card {
+    border-radius: 6px;
+    padding: 6px;
+  }
+  
+  .tool-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .info-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 3px 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .info-list li strong {
+    font-size: 0.55rem;
+  }
+
+  .info-list li span {
+    word-break: break-word;
+    text-align: left;
+    font-size: 0.65rem;
   }
 }
 

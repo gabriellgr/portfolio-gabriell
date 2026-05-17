@@ -545,3 +545,61 @@
 
   updateSkills('python');
 })();
+
+/* ─── 11. DRAGGABLE HERO CAROUSEL ─── */
+(function initDraggableCarousel() {
+  const container = document.querySelector('.hero-fan');
+  const cards = Array.from(document.querySelectorAll('.hero-fan .fan-card'));
+  if (!container || cards.length === 0) return;
+
+  const positions = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5'];
+  
+  // Set initial positional classes
+  cards.forEach((card, i) => {
+    card.classList.add(positions[i]);
+  });
+
+  let currentOffset = 0;
+  let startX = 0;
+  let isDragging = false;
+
+  const updatePositions = () => {
+    cards.forEach((card, i) => {
+      positions.forEach(p => card.classList.remove(p));
+      let newIndex = (i + currentOffset) % positions.length;
+      if (newIndex < 0) newIndex += positions.length;
+      card.classList.add(positions[newIndex]);
+    });
+  };
+
+  const onStart = (e) => {
+    isDragging = true;
+    startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    container.style.cursor = 'grabbing';
+  };
+
+  const onEnd = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    container.style.cursor = 'grab';
+
+    const endX = e.type.includes('mouse') ? e.pageX : e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        currentOffset++; // Swipe right
+      } else {
+        currentOffset--; // Swipe left
+      }
+      updatePositions();
+    }
+  };
+
+  container.style.cursor = 'grab';
+  container.addEventListener('mousedown', onStart);
+  window.addEventListener('mouseup', onEnd);
+  
+  container.addEventListener('touchstart', onStart, {passive: true});
+  window.addEventListener('touchend', onEnd);
+})();
