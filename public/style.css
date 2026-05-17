@@ -1118,6 +1118,12 @@ body.cursor-hover #cursor-follower {
    RESPONSIVE — MOBILE FIRST BREAKPOINTS
    ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* Remove fixed sections on mobile so they scroll naturally */
+  #navbar,
+  .social-dock {
+    position: absolute !important;
+  }
+
   /* Mobile Overflow Safety Net */
   #hero,
   .about-fullscreen {
