@@ -95,6 +95,55 @@
   sections.forEach((section) => observer.observe(section));
 })();
 
+/* ─── 4.1. TYPEWRITER ANIMATION (ABOUT INTRO) ─── */
+(function initTypewriter() {
+  const intro = document.querySelector('.about-intro');
+  if (!intro) return;
+
+  function wrapCharacters(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text.trim().length) return; // ignore pure whitespace nodes
+
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === ' ' || char === '\n') {
+          fragment.appendChild(document.createTextNode(char));
+        } else {
+          const span = document.createElement('span');
+          span.textContent = char;
+          span.style.opacity = '0';
+          span.style.transition = 'opacity 0.05s';
+          fragment.appendChild(span);
+        }
+      }
+      node.parentNode.replaceChild(fragment, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // Traverse backwards to avoid index issues when replacing nodes
+      Array.from(node.childNodes).forEach(wrapCharacters);
+    }
+  }
+
+  wrapCharacters(intro);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const chars = intro.querySelectorAll('span');
+        chars.forEach((char, index) => {
+          setTimeout(() => {
+            char.style.opacity = '1';
+          }, index * 25); // Speed: 25ms per character
+        });
+        observer.unobserve(intro);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(intro);
+})();
+
 /* ─── 5. SKILL BARS ANIMATION ─── */
 (function initSkillBars() {
   const skillRows = document.querySelectorAll('.skill-row');
@@ -271,6 +320,7 @@
 
   /* ── Wheel (mouse / trackpad) — INSTANT TRIGGER ── */
   window.addEventListener('wheel', (e) => {
+    if (window.innerWidth <= 768) return; // Disable custom snap on mobile
     e.preventDefault();
     if (isAnimating || Date.now() - lastSnapTime < MIN_GAP) return;
 
@@ -283,16 +333,20 @@
 
   /* ── Touch ── */
   window.addEventListener('touchstart', (e) => {
+    if (window.innerWidth <= 768) return; // Disable custom snap on mobile
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
 
   window.addEventListener('touchend', (e) => {
+    if (window.innerWidth <= 768) return; // Disable custom snap on mobile
     const delta = touchStartY - e.changedTouches[0].clientY;
     if (Math.abs(delta) < 50) return;
     snapTo(nearest() + (delta > 0 ? 1 : -1));
   }, { passive: true });
 
-  window.addEventListener('load', () => snapTo(nearest()));
+  window.addEventListener('load', () => {
+    if (window.innerWidth > 768) snapTo(nearest());
+  });
 
 })();
 
